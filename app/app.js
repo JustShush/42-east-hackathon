@@ -120,13 +120,13 @@ app.get('/user/:user', (req, res) => {
 	// Sort projects based on difficulty first, then name
 	data.projects.sort(function (lhs, rhs)
 	{
-		if (lhs.difficulty < rhs.difficulty)
-			return -1;
 		if (lhs.difficulty > rhs.difficulty)
-			return 1;
-		if (lhs.name < rhs.name)
 			return -1;
+		if (lhs.difficulty < rhs.difficulty)
+			return 1;
 		if (lhs.name > rhs.name)
+			return -1;
+		if (lhs.name < rhs.name)
 			return 1;
 		return 0;
 	});
